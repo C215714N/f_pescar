@@ -10,5 +10,6 @@
   app.listen(PORT, () => console.log(`Escuchando en el Puerto ${PORT}`))
 /* Routes */
   app.get("/", (req, res) => res.json({ message: "Bienvenido a Compumundo Hyper Mega Red." }))
-  require("./app/routes/user.js")(app)
+  require("./app/routes/user")(app)
+  require("./app/routes/product")(app)
   
