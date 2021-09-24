@@ -15,7 +15,16 @@ const sql = require("../config/db.js")
     err ? result(err, null) : (res.length) ? result(null, res[0]) : result({ kind: "not_found" }, null) )
   
   User.read = result => 
-    sql.query("SELECT * FROM users", (err, res) => 
+    sql.query(
+      `SELECT 
+        user_id,
+        user_name AS usuario,
+        CONCAT(last_name, ' ', first_name) AS 'nombre completo',
+        phone AS telefono,
+        user_email AS correo,
+        cuit
+      FROM users AS u
+      JOIN users_data AS ud ON ud.user = u.user_id`, (err, res) => 
     err ? result(null, err) : result(null, res) )
   
   User.update = (id, user, result) =>

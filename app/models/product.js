@@ -10,11 +10,24 @@ const sql = require("../config/db.js")
     err ? result(err, null) : result(null, { id: res.insertId, ...newProduct } ) )
 
   Product.find = (id, result) => 
-    sql.query(`SELECT * FROM products WHERE product_id = ${id} OR product = ${id}`, (err, res) => 
+    sql.query(`
+      SELECT 
+        product_id,
+        description AS categorias,
+        product AS productos 
+      FROM products AS p
+      JOIN categories AS c ON c.cat_id = p.category
+      WHERE product_id = ${id}`, (err, res) => 
     err ? result(err, null) : (res.length) ? result(null, res[0]) : result({ kind: "not_found" }, null) )
   
   Product.read = result => 
-    sql.query("SELECT * FROM products", (err, res) => 
+    sql.query(`
+      SELECT 
+        product_id, 
+        description AS categoria, 
+        product AS producto 
+      FROM products AS p
+      JOIN categories AS c ON c.cat_id = p.category`, (err, res) => 
     err ? result(null, err) : result(null, res) )
   
   Product.update = (id, product, result) =>
