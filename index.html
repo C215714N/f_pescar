@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+    <nav>
+        <button class="btn icon-bars"></button>
+        <div class="flex">
+            <a class="icon-user-circle" href=""></a>
+        <a href="#">DB <span class="icon-handshake"></span></a>
+        </div>
+        <ul class="menu">
+            <li><a class="icon-home" href="#home"><span>INICIO</span></a></li>
+            <li><a class="icon-user" href="#users"><span>USUARIOS</span></a></li>
+            <li><a class="icon-truck" href="#products"><span>PRODUCTOS</span></a></li>
+            <li><a class="icon-about" href="#posts"><span>PUBLICACIONES</span></a></li>
+            <li><a class="icon-credit" href="#sales"><span>VENTAS</span></a></li>
+        </ul>
+        <a href="#" class="icon-back opacity"></a>
+    </nav>
+    <article>
+        <form id="form">
+            <h2>Formulario <span></span></h2>
+            <div class="selection">
+                <h3>Acciones</h3>
+                <input id="create" type="radio" name="type" value="post">
+                <label class="btn" for="create"> 
+                    <span class="icon-plus"></span>
+                    Agregar
+                </label>
+                <input id="update" type="radio" name="type" value="put">
+                <label class="btn" for="update"> 
+                    <span class="icon-cog"></span>
+                    Actualizar
+                </label>
+                <input id="delete" type="radio" name="type" value="delete">
+                <label class="btn" for="delete"> 
+                    <span class="icon-minus"></span>
+                    Eliminar
+                </label>
+            </div>
+            <div class="fields">
+                <h3>Complete los campos</h3>
+                <label for="">Ingrese su Nombre</label>
+                <input type="text" maxlength="50" pattern="[a-z A-Z]{3,50}" placeholder="complete el" required>
+                <div class="valid">
+                    solo se admite el formato valido
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn icon-cross" type="reset">
+                    <span>Cancelar</span>
+                </button>
+                <button class="btn icon-checkmark" type="submit">
+                    <span>Finalizar</span>
+                </button>
+            </div>
+        </form>
+    </article>
+    <article class="content">
+        <table>
+            <caption>Tabla de Contenidos</caption>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Usuario</th>
+                    <th>Autor</th>
+                    <th>Repositorio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>C215714N</td>
+                    <td><a href="mailto:cristiandracedo@hotmail.com">Cristian Racedo</a></td>
+                    <td><a href="https://github.com/c215714n/f_pescar" target="_blank">GitHub</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+    <script src="src/scripts/main.js"></script>
+</body>
+</html>
