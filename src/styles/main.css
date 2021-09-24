@@ -1,0 +1,349 @@
+/*Content First - Mobile First*/
+    /*Reglas Generales*/
+		@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');	
+        @import url('icomoon.css');	
+	/*Formato General*/	
+		/*Constantes*/
+			*{ 
+				box-sizing: border-box;
+				scroll-behavior: smooth;
+				font-family: var(--font);
+				transition: all .5s ease;
+			}
+		/*Variables*/
+			:root{
+				--first:	#c6a;	
+				--second: 	#66c;	
+				--dark: 	#333;	
+				--light: 	#eee;
+				--danger: 	#c33;	
+				--warning: 	#ec3;	
+				--success:	#3c6;	
+				--info: 	#36c;
+				--gradient: var(--first) linear-gradient(var(--first), var(--second));
+				--letter: 	1rem;
+				--rad: 		.25rem;	
+				--size: 	100%;
+				--sm: 		576px;	
+				--md: 		768px;
+				--lg: 		992px;
+				--xl: 		1200px;
+				--xxl: 		1400px;
+				--font:		'Raleway', 'segoe ui', sans-serif;
+			}
+		/*Márgenes*/
+			body, 
+			header *, 
+			h2,
+			h3,
+			h4,	
+			.menu, 
+			.slide, 
+			.sidebar, 
+			.container, 
+			.example{ margin: 0 }
+			main, 
+			.example, 
+			.container{ margin: auto }
+		/*Bordes*/
+			main section,
+			main aside,
+			.btn,
+			.searchbar input,
+			.sidebar::-webkit-scrollbar-thumb,
+			.sidebar strong,
+			.example * div,
+			.copy a,
+			#contact,
+			#contact input,
+			#contact textarea,
+			.social a{ border-radius: var(--rad); }
+		/*Tipografía*/
+			nav a,
+			.menu a,
+			.sidebar a,
+			.copy a{ text-decoration: none; }
+			input, 
+			textarea{ font-size: var(--letter) }
+			.logo{ font:bolder calc(var(--size) /.67) var(--font) }
+		/*Colores*/
+			nav a,
+			.btn,
+			.searchbar input,
+			.searchbar button:hover,
+			.searchbar ::-webkit-search-cancel-button,
+			.searchbar ::-webkit-input-placeholder,
+			.sidebar a,
+			.sidebar strong,
+			.example * div,
+			.copy,
+			#header,
+			#header button.opacity,
+			#footer,
+			#footer .btn.opacity,
+			#contact,
+			#contact .valid{ color: var(--light) }
+		/*Posición Relativa*/
+			main .header, 
+			.bg-content, 
+			.container, 
+			.searchbar, 
+			.social,
+			.example h4, 
+			.copy a, 
+			#header, 
+			#footer{ position: relative; }
+		/*Posición Absoluta*/
+			.slide li, 
+			.bg-content video, 
+			.bg-content .description, 
+			.bg-content .container,	
+			#footer iframe{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: var(--size);
+				height: var(--size);
+				z-index: -1;
+			}
+        /*Display*/
+            .flex{ 
+                display: flex;
+                align-items: center;
+            }
+		/*Botones*/
+			.btn{
+				min-width: calc(var(--letter) /.5);
+				margin: calc(var(--letter) / 2);
+				outline: none;
+				border-radius: calc(var(--letter)/4);
+				border: calc(var(--letter) / 10) solid var(--light);
+                padding: calc(var(--letter)/2) calc(var(--letter)/4);
+				background-color: transparent;
+				text-transform: uppercase;
+			}
+			.btn:hover{ 
+				color: var(--first);
+				background-color: var(--light);
+			}
+			button, 
+			.btn, 
+			.example h4,
+			.social::after{ cursor: pointer }
+		/*Opacidad*/
+			.opacity, 
+			.social a,
+			.social::after{ opacity: .3 }
+			.opacity:hover, 
+			.social a:hover,
+			.social:hover::after{ opacity: .7 }		
+		/*Listas*/
+			.menu, 
+			.sidebar ul{ list-style: none }
+	/*Barra de Navegacion*/
+		nav{
+			position: sticky;
+			top: 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			background: var(--gradient);
+			z-index: 2;
+		}
+		nav a{
+			display: block;
+			padding: calc(var(--letter) / 2);
+            font-size: calc(var(--letter) / .8);
+		}
+		.menu{ 
+			width: var(--size);
+			max-height: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		.menu.active{ max-height: 600px }
+		.menu span{ 
+            padding: calc(var(--letter) / 2);
+            font-size: var(--letter);
+        }
+		.menu a:hover{ background-color: rgba(68,68,68,.5) }
+		.icon-back{
+			position: fixed;
+			right: calc(var(--letter) / 2);
+			bottom: calc(var(--letter) / 2);
+			border-radius: calc(var(--size) / 2);
+			background-color: var(--dark);
+		}
+	/*Cabecera*/
+		#header{
+			display: grid;
+			justify-content: center;
+			align-content: center;
+			height: min(100vh, 600px);
+			padding: calc(var(--letter) / 2);
+			text-align: center;
+			text-shadow: 0 0 calc(var(--letter) / 2) var(--dark);
+			font-size: min(calc(2vw + .8rem), 4rem);
+		}
+		#header button.opacity{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			outline: none;
+			border: none;
+			padding: min(2vw, 5rem);
+			background-color: transparent;
+			font-size: min(calc(2vw + .8rem), 3rem);
+		}
+		#header .icon-prev{ left: 0 }
+		#header .icon-next{ right: 0 }
+	
+    /*Main Content*/
+        section{
+            display: none;
+        }
+        section:target{
+            display: block;
+        }
+    /*Request Forms*/
+        form{
+			margin: calc(var(--letter)/2);
+			border-radius: calc(var(--letter)/4);
+            padding: var(--letter);
+			color: var(--light);
+			background: var(--gradient);
+        }
+		form :is(label, input, textarea, option, button){
+			font-size: var(--letter);
+			resize: none;
+		}
+		.selection{ padding: var(--letter) 0; }
+		.selection input{ display: none }
+		.selection label{ display: block }
+        .fields :is(input, textarea, select, option){
+			width: var(--size);
+            outline: none;
+            margin: calc(var(--letter)/8) 0 0;
+            border: calc(var(--letter)/10) solid var(--light);
+            padding: calc(var(--letter)/4) calc(var(--letter)/2);
+            background-color: var(--light);
+        }
+		.actions{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+		}
+		.actions button{
+			width: 100%;
+		}
+        .valid{
+            max-height: 0;
+            margin-bottom: calc(var(--letter)/2);
+            color: var(--light);
+            background-color: var(--dark);
+            overflow: hidden;
+        }
+    /*Form Validation*/
+        form :not(.btn):focus{ border-color: var(--dark) }
+        form :focus + .valid{
+            max-height: 300px;
+            padding: calc(var(--letter) / 2);
+        }
+        form :not(.btn):valid{ border-color: var(--success) }
+        form :not(:placeholder-shown):invalid{ border-color: var(--danger) }
+        form :not(button):valid + .valid{ background-color: var(--success) }
+        form :not(:placeholder-shown):invalid + .valid{ background-color: var(--danger) }
+	/*Form Buttons*/
+		.actions button,
+		.selection label{
+			margin: calc(var(--letter) / 4);
+			padding: calc(var(--letter)/2) var(--letter);
+		}
+		.actions button:hover,
+		.selection :is(input:checked + label, label:hover){
+			color: var(--light);
+			background-color: var(--second);
+		}
+	/*Table Request*/
+	.content{
+		padding: var(--letter);
+		overflow: auto;
+		text-align: left;
+	}
+	.content a{
+		color:#ccc;
+		text-decoration:none;
+	}
+	.content a:hover{
+		color:#eee;
+		text-shadow: 0 0 .5rem #eee;
+	}
+	table{
+		margin: auto;
+		border-collapse: collapse;
+		color: var(--light);
+		background: var(--gradient);
+	}
+	table caption{
+		margin-top: var(--letter);
+		border-radius: var(--rad) var(--rad) 0 0;
+		background-color: var(--first);
+	}
+	table caption,
+	table th,
+	table td{
+		padding: calc(var(--letter)/2);
+	}
+	table th:first-child,
+	table td:first-child{
+		display: none;
+	}
+	table tr{
+		--light: rgba(51,51,51,.5);
+		--dark: rgba(102,102,102,.5);
+	}
+	table tbody tr:nth-child(odd){ background-color: var(--light)}
+	table tbody tr:nth-child(even){ background-color: var(--dark)}
+/*Pantallas Pequeñas*/
+	@media screen and (min-width: 576px){
+		.actions button{
+			width: auto;
+		}
+	}
+/*Pantallas Medianas*/
+	@media screen and (min-width: 768px){
+		form{
+			max-width: 720px;
+			margin: var(--letter) auto;
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			grid-template-areas: 
+				'selection title'
+				'selection fields'
+				'selection actions';
+			gap: var(--letter);
+		}
+		form h2{ grid-area: title }
+		.selection{ grid-area: selection }
+		.fields{ grid-area: fields }
+		.actions{ grid-area: actions }
+	}
+/*Pantallas Grandes*/
+	@media screen and (min-width: 992px){
+		nav{
+			flex-direction: row-reverse;
+		}
+		nav .btn{
+			display: none;
+		}
+		.menu{
+			display: flex;
+			width: auto;
+			max-height: 600px;
+		}
+		form{
+			grid-template-columns: 1fr 3fr;
+			max-width: 960px;
+		}
+	}
